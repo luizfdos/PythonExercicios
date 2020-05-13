@@ -11,22 +11,22 @@ while True:
     print('           CADASTRE UMA PESSOA')
     print('-' * 40)
     idade = int(input('Idade: '))
-    if idade > 18:
+    if idade >= 18:
         mais18 += 1
-    sexo = str(input('Sexo: [M/F] '))
-    while sexo not in 'MmFf':
-        sexo = str(input('Sexo: [M/F]'))
-    if sexo in 'Ff' and idade < 20:
+    sexo = str(input('Sexo: [M/F] ')).strip().upper()[0]
+    while sexo not in 'MF':
+        sexo = str(input('Sexo: [M/F]')).strip().upper()[0]
+    if sexo in 'F' and idade < 20:
             m20 += 1
-    if sexo in 'Mm':
+    if sexo in 'M':
         homens += 1
-    continuar = str(input('Quer continuar? [S/N] '))
-    while continuar not in 'SsNn':
-        continuar = str(input('Quer continuar? [S/N] '))
-    if continuar in 'Nn':
+    continuar = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+    while continuar not in 'SN':
+        continuar = str(input('Quer continuar? [S/N] ')).strip().upper()[0]
+    if continuar in 'N':
         break
 print('============ FIM DO PROGRAMA ============')
-print(f'Total de pessoas com mais de 18 anos: {mais18}')
+print(f'Total de pessoas com de 18 anos ou mais: {mais18}')
 print(f'Ao todo temos {homens} ', end='')
 print('homem cadastrado' if homens == 1 else 'homens cadastrados')
 print(f'E temos {m20} ', end='')
